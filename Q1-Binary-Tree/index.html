@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Binary tree</title>
+    </head>
+    <body>
+        <h2>Q1.Implement In-order Tree Traversal to print all nodes of a Binary Tree.</h2>
+        <script>
+            /* Class containing left and right child of current
+            node and key value*/
+
+            class Node {
+                constructor(val) {
+                    this.key = val;
+                    this.left = null;
+                    this.right = null;
+                }
+            }
+
+            // Root of Binary Tree
+            var root = null;
+
+            /* Binary Tree, Print its nodes in inorder */
+            function printInorder(node){
+                if(node == null){
+                    return;
+                }
+
+                /* first recur on left child */
+                printInorder(node.left);
+
+                /* then print the data of node */
+                document.write(node.key + " ");
+
+                /* now recur on right child */
+                printInorder(node.right);
+            }
+
+            root = new Node(1);
+            root.left = new Node(2);
+            root.right = new Node(3);
+            root.left.left = new Node(4);
+            root.left.right = new Node(5);
+
+            document.write("<br/>Inorder traversal of binary tree is <br/>");
+            printInorder(root);
+        </script>
+    </body>
+</html>
